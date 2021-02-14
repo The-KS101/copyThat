@@ -1,4 +1,17 @@
 {% extends 'header.html' %}
-{% block content %}
+{% block content %}    
     <h3>I dey show right now</h3>
+    {% csrf_token %}
+    <form action="" method="post">
+        {{form.as_p}}
+        <button type="submit">Paste</button>
+    </form>
+
+    <script>
+        $(function () {
+            $("#id_delTime").datetimepicker({
+            format: 'd/m/Y H:i',
+            });
+        });
+    </script>
 {% endblock content %}

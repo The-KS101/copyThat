@@ -10,9 +10,3 @@ def index(request):
 
 
 
-def test(request):
- 
-    context = {
-        
-    }
-    return render(request, 'test.html', context)

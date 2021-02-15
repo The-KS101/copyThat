@@ -7,3 +7,12 @@ def index(request):
         'form': form,
     }
     return render(request, 'index.html', context)
+
+
+
+def test(request):
+ 
+    context = {
+        
+    }
+    return render(request, 'test.html', context)

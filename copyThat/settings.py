@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 from decouple import config
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -38,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pasteIt'
+    'pasteIt',
 ]
 
 MIDDLEWARE = [
@@ -77,8 +76,14 @@ WSGI_APPLICATION = 'copyThat.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'CLIENT': {
+            'name': 'pasteItDb',
+            'host': 'mongodb+srv://Areezy:database123@cluster0.c9ncl.mongodb.net/ClipDB?retryWrites=true&w=majority',
+            'username': 'Areezy',
+            'password': 'database123',
+            'authMechanism': 'SCRAM-SHA-1'
+        }
     }
 }
 

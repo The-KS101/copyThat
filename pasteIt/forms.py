@@ -1,4 +1,5 @@
 from django import forms
+from .models import urlTable
 
 TIME_CHOICES = (
     (0, ("On View")),
@@ -9,10 +10,13 @@ TIME_CHOICES = (
     (720, ("12 Hours")),
     (1440, ("24 Hours")),
 )
-class ContentPasted(forms.Form):
-    url = forms.CharField(label="Name")
-    content = forms.CharField(label=" ", widget=forms.Textarea)
+class ContentPasted(forms.ModelForm):
     delTime = forms.ChoiceField(choices=TIME_CHOICES, )
+    class Meta:
+        model = urlTable
+        fields = ['url', 'text']
+
+    
 
 class DispPasted(forms.Form):
     content = forms.CharField(label=" ")

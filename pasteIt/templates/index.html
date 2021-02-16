@@ -1,17 +1,49 @@
 {% extends 'header.html' %}
-{% block content %}    
-    <h3>I dey show right now</h3>
+{% block content %}
+<style>
+    #id_content{
+        width: 100%;
+    }
+    
+    .addedInfo{
+        display: flex;
+    }
+    @media screen and (max-width:768px) {
+        #id_url{
+            width: 40%;
+        }
+        .addedInfo{
+            display:inline-block;
+            border: 2px solid red;
+            width: 100%;
+        }
+
+        .addedInfo div{
+            display: inline;
+        }
+    }
+</style>  
     {% csrf_token %}
-    <form action="" method="post">
-        {{form.as_p}}
+    <form action="" method="post" style="text-align: center;">
+        <div style="display: flex;">
+            <div style="text-align: left; width: 75%; margin: auto;">
+                <h3>Enter text you would like to copy:</h3>
+                <div style="width: 100%;">
+                    {{form.content}}
+                    <div class="addedInfo">
+                        <div style="width: 60%;">
+                            <h3>Url: <span style="font-size: 15px; font-weight: lighter;">copythat.com/{{form.url}}</span></h3>
+                        </div>
+        
+                        <div style="width: 40%;">
+                            <h3>Delete In: {{form.delTime}}</h3>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
         <button type="submit">Paste</button>
     </form>
 
-    <script>
-        $(function () {
-            $("#id_delTime").datetimepicker({
-            format: 'd/m/Y H:i',
-            });
-        });
-    </script>
 {% endblock content %}

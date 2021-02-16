@@ -15,6 +15,41 @@
     <title>Copy That</title>
 </head>
 <body>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+
+        .ul{
+           margin-top: auto; 
+        }
+
+        .inList{
+            display: inline;
+            margin-left: 20px;
+            margin-right: 10px;
+        }
+        @media screen and (max-width:768px) {
+            .inList{
+                display: inline;
+                margin-left: 10px;
+                margin-right: 5px;
+            }
+        }
+    </style>
+    <nav style="display: flex; border: 2px solid red;">
+        <div style="width: 30%;">
+            <h3>Copy That</h3>
+        </div>
+        <div style="margin:auto 0 auto auto;">
+            <ul>
+                <li class="inList">Idea</li>
+                <li class="inList">Option</li>
+                <li class="inList">Nav Sha</li>
+            </ul>
+        </div>
+    </nav>
     {% block content %}
 
     {% endblock content %}

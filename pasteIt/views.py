@@ -27,7 +27,7 @@ def urlReceive(request, urlName):
         
         data = urlTable.objects.get(url=urlName)
         if datetime.datetime.now().replace(tzinfo=timezone.utc) > data.deletion_time.replace(tzinfo=timezone.utc):
-            data.delete()
+            urlTable.objects.get(url=urlName).delete()
             form = ContentPasted()
             form.url = urlName
             if request.method == "POST":
@@ -63,7 +63,7 @@ def urlReceive(request, urlName):
         return render(request, 'pasted.html', context)
 
     
-    form = ContentPasted()
+    form = ContentPasted(initial={'url': urlName, 'text':data.text })
     context = {
         'form': form,
     }

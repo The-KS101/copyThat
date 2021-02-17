@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import urlTable
 from .forms import ContentPasted 
 import datetime
+from datetime import timezone
 
 def index(request):
     form = ContentPasted()
@@ -21,9 +22,28 @@ def index(request):
     return render(request, 'index.html', context)
 
 def urlReceive(request, urlName):
-    form = ContentPasted()
+    
     try:
+        
         data = urlTable.objects.get(url=urlName)
+        if datetime.datetime.now().replace(tzinfo=timezone.utc) > data.deletion_time.replace(tzinfo=timezone.utc):
+            urlTable.objects.get(url=urlName).delete()
+            form = ContentPasted()
+            form.url = urlName
+            if request.method == "POST":
+                form = ContentPasted(request.POST)
+                if form.is_valid():
+                    url = form.cleaned_data['url']
+                    text = form.cleaned_data['text']
+                    deletion_time = datetime.datetime.now() + datetime.timedelta(minutes=int(form.cleaned_data['delTime']))
+                    urlTable.objects.create(url=url, text=text, deletion_time=deletion_time)
+                    return render(request, 'created.html')
+
+        else:
+            form = ContentPasted(initial={"urll":urlName})
+
+
+        
     except:
         form = ContentPasted(initial={'url': urlName})
         form.url = urlName
@@ -41,8 +61,9 @@ def urlReceive(request, urlName):
             'form': form,
         }
         return render(request, 'pasted.html', context)
+
     
-    form = ContentPasted()
+    form = ContentPasted(initial={'url': urlName, 'text':data.text })
     context = {
         'form': form,
     }

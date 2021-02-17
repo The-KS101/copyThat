@@ -45,7 +45,7 @@ def urlReceive(request, urlName):
 
         
     except:
-        form = ContentPasted()
+        form = ContentPasted(initial={'url': urlName})
         form.url = urlName
         if request.method == "POST":
             form = ContentPasted(request.POST)

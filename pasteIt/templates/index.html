@@ -26,27 +26,4 @@
 
     <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem assumenda cum, eaque voluptatem aspernatur nulla suscipit totam velit ratione corporis, eligendi cupiditate voluptas qui ea repudiandae aliquid deserunt, ipsum impedit? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, explicabo? Alias sed rerum nobis quas et. Recusandae amet culpa consequatur quos vel magnam. Tempore minus sit consequatur sequi ad. Earum. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis odio voluptatum vel deserunt facere qui odit impedit repudiandae placeat eos, mollitia harum assumenda, deleniti consequuntur quaerat quo ut? Harum, voluptates? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis consequatur odit nobis officia, id porro culpa sequi dicta voluptatibus harum, accusantium temporibus adipisci quos beatae aliquid delectus architecto iste perferendis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi nostrum neque cumque dolorem facilis, totam atque provident accusamus eligendi obcaecati dolores recusandae dignissimos labore sed veniam ad placeat iste error! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea eveniet impedit dolor reprehenderit placeat nihil, dignissimos nostrum hic dolores fugit necessitatibus nam beatae reiciendis! Nisi repellendus id debitis molestiae vitae.</h4>
 
-    <form action="" method="post" style="text-align: center;">
-        {% csrf_token %}
-        <div style="display: flex;">
-            <div style="text-align: left; width: 75%; margin: auto;">
-                <h3>Enter text you would like to copy:</h3>
-                <div style="width: 100%;">
-                    {{form.text}}
-                    <div class="addedInfo">
-                        <div style="width: 60%;">
-                            <h3>Url: <span style="font-size: 15px; font-weight: lighter;">copythat.com/{{form.url}}</span></h3>
-                        </div>
-        
-                        <div style="width: 40%;">
-                            <h3>Delete In: {{form.delTime}}</h3>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-        <button type="submit">Paste</button>
-    </form>
-
 {% endblock content %}

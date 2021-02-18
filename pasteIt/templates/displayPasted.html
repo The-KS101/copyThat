@@ -1,0 +1,39 @@
+{% extends 'header.html' %}
+{% block content %}
+<style>
+    #id_text{
+        width: 100%;
+    }
+    
+    .addedInfo{
+        display: flex;
+    }
+    @media screen and (max-width:768px) {
+        #id_url{
+            width: 40%;
+        }
+        .addedInfo{
+            display:inline-block;
+            border: 2px solid red;
+            width: 100%;
+        }
+
+        .addedInfo div{
+            display: inline;
+        }
+    }
+</style>  
+
+    <form style="text-align: center;">
+        {% csrf_token %}
+        <div style="display: flex;">
+            <div style="text-align: left; width: 75%; margin: auto;">
+                <h3>Your Text:</h3>
+                <div style="width: 100%;">
+                    {{form.text}}
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock content %}

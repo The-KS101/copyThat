@@ -5,24 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
-    <!-- XDSoft DateTimePicker -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Copy That</title>
 </head>
 <body>
     <style>
+        .ank{
+            color: rgb(226, 223, 223);
+        }
         body{
             margin: 0;
             padding: 0;
-        }
-
-        .ul{
-           margin-top: auto; 
+            background-color: rgb(226, 223, 223);
         }
 
         .inList{
@@ -36,18 +31,24 @@
                 margin-left: 10px;
                 margin-right: 5px;
             }
+
+            nav div h3{
+                font-size: 20px;
+            }
+
+            nav div h5{
+                font-size: 15px;
+            }
         }
     </style>
-    <nav style="display: flex; border: 2px solid red;">
+    <nav class="d-flex p-3" style="background-color: rgb(46, 46, 46);">
         <div style="width: 30%;">
-            <h3>Copy That</h3>
+            <h3 style="color: white;"><a class="ank" href="/">Copy That</a></h3>
         </div>
-        <div style="margin:auto 0 auto auto;">
-            <ul>
-                <li class="inList">Idea</li>
-                <li class="inList">Option</li>
-                <li class="inList">Nav Sha</li>
-            </ul>
+        <div class="d-flex align-items-center ml-auto" >
+            <h5 class="inList"><a class="ank" href="#">Auto</a></h5>
+            <h5 class="inList"><a class="ank" href="#">Socials</a></h5>
+            <h5 class="inList"><a class="ank" href="#">Donate</a></h5>
         </div>
     </nav>
     {% block content %}

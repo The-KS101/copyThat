@@ -3,6 +3,8 @@
 <style>
     #id_text{
         width: 100%;
+        background-color: rgb(46, 46, 46);
+        color: rgb(226, 223, 223);
     }
     
     .addedInfo{
@@ -27,12 +29,15 @@
     <form style="text-align: center;">
         {% csrf_token %}
         <div style="display: flex;">
-            <div style="text-align: left; width: 75%; margin: auto;">
-                <h3>Your Text:</h3>
+            <div class="mt-5 mb-4" style="text-align: left; width: 75%; margin: auto;">
+                <h3 class="mb-3">Your Text:</h3>
                 <div style="width: 100%;">
                     {{form.text}}
                 </div>
             </div>
+        </div>
+        <div>
+            <h3>Will be deleted on {{time}}</h3>
         </div>
     </form>
 

@@ -3,10 +3,24 @@
 <style>
     #id_text{
         width: 100%;
+        background-color: rgb(46, 46, 46);
+        color: rgb(226, 223, 223);
+    }
+
+    form button{
+        background-color: rgb(46, 46, 46);
+        color: rgb(226, 223, 223);
+    }
+
+    form button:hover{
+        color: rgb(46, 46, 46);
+        background-color: rgb(226, 223, 223);
+        cursor: pointer;
     }
     
     .addedInfo{
         display: flex;
+        margin-top: 20px;
     }
     @media screen and (max-width:768px) {
         #id_url{
@@ -14,7 +28,6 @@
         }
         .addedInfo{
             display:inline-block;
-            border: 2px solid red;
             width: 100%;
         }
 
@@ -27,8 +40,8 @@
     <form action="" method="post" style="text-align: center;">
         {% csrf_token %}
         <div style="display: flex;">
-            <div style="text-align: left; width: 75%; margin: auto;">
-                <h3>Enter text you would like to copy:</h3>
+            <div class="mt-5 ml-auto mr-auto mb-4" style="text-align: left; width: 75%;">
+                <h3 class="mb-3">Enter text you would like to copy:</h3>
                 <div style="width: 100%;">
                     {{form.text}}
                     <div class="addedInfo">
@@ -37,14 +50,14 @@
                         </div>
         
                         <div style="width: 40%;">
-                            <h3>Delete In: {{form.delTime}}</h3>
+                            <h3>Delete In: <span style="font-size: 15px; font-weight: lighter;">{{form.delTime}}</span></h3>
                         </div>
                     </div>
                     
                 </div>
             </div>
         </div>
-        <button type="submit">Paste</button>
+        <button type="submit" >Paste</button>
     </form>
 
 {% endblock content %}

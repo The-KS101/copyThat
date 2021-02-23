@@ -21,7 +21,7 @@ def urlReceive(request, urlName):
             form = ContentPasted(initial={'url': data.url, 'text': data.text})
             data.visited = True
             data.save()
-            return give_form(request, form)
+            return give_form(request, form, data.deletion_time)
 
 
     except:
@@ -30,9 +30,10 @@ def urlReceive(request, urlName):
 
 #This is the function to returns a functional form
 
-def give_form(request, form):
+def give_form(request, form, deltime):
     context = {
         'form': form,
+        'time': deltime,
     }
     return render(request, 'displayPasted.html', context)
 
@@ -47,7 +48,10 @@ def give_populated_form_with_url(request, urlName):
             text = form.cleaned_data['text']
             deletion_time = datetime.datetime.now() + datetime.timedelta(minutes=int(form.cleaned_data['delTime']))
             urlTable.objects.create(url=url, text=text, deletion_time=deletion_time)
-            return render(request, 'created.html')
+            context = {
+                'url': url
+            }
+            return render(request, 'created.html', context)
     context = {
         'form': form,
     }

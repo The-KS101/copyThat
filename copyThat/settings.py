@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'djongo',
         'CLIENT': {
             'name': 'pasteItDb',
-            'host': 'mongodb+srv://KS101:j9mcbe7ivTruQmbz@cluster0.c9ncl.mongodb.net/ClipDB?retryWrites=true&w=majority',
+            'host': config("HOST"),
             'username': config("USERNAME"),
             'password': config("PASSWORD"),
             'authMechanism': 'SCRAM-SHA-1',

@@ -79,10 +79,10 @@ DATABASES = {
         'ENGINE': 'djongo',
         'CLIENT': {
             'name': 'pasteItDb',
-            'host': 'mongodb+srv://Areezy:database123@cluster0.c9ncl.mongodb.net/ClipDB?retryWrites=true&w=majority',
-            'username': 'Areezy',
-            'password': 'database123',
-            'authMechanism': 'SCRAM-SHA-1'
+            'host': 'mongodb+srv://KS101:j9mcbe7ivTruQmbz@cluster0.c9ncl.mongodb.net/ClipDB?retryWrites=true&w=majority',
+            'username': config("USERNAME"),
+            'password': config("PASSWORD"),
+            'authMechanism': 'SCRAM-SHA-1',
         }
     }
 }
